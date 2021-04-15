@@ -7,20 +7,23 @@ read val
 if [ $val -eq '1' ]; 
 then
         #generating keys
-        gpg --gen-key        
+        gpg --gen-key    
+        echo "Enter your key: "
+        read yourkey
+        gpg --armor --export $yourkey   
+        git config --global user.signingkey $yourkey    
 elif [ $val -eq '2' ]; 
 then
         #listing keys
         gpg --list-keys
+        echo "Enter your key: "
+        read yourkey
+        gpg --armor --export $yourkey   
 fi
 
 #reading keys
-echo "Enter your key: "
-read yourkey
 
-gpg --armor --export $yourkey
 echo "Copy and paste this key on your github"
-git config --global user.signingkey $yourkey
 
 echo "Change directory to repo:"
 read dir
