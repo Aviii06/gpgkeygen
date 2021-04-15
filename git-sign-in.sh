@@ -24,7 +24,7 @@ git config --global user.signingkey $yourkey
 
 echo "Change directory to repo:"
 read dir
-cd dir
+cd $dir
 
 #adding the repo
 git add .
