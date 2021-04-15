@@ -19,8 +19,12 @@ echo "Enter your key: "
 read yourkey
 
 gpg --armor --export $yourkey
-
+echo "Copy and paste this key on your github"
 git config --global user.signingkey $yourkey
+
+echo "Change directory to repo:"
+read dir
+cd dir
 
 #adding the repo
 git add .
